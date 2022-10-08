@@ -2,7 +2,7 @@ import requests
 
 url = "https://api.tixte.com/v1/"
 
-class tixtepy():
+class tixtepy:
 
     global hasInitialised
     hasInitialised = False;
