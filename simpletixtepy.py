@@ -2,8 +2,6 @@ import requests
 
 url = "https://api.tixte.com/v1/"
 
-# why are you reading self??
-
 class simpletixtepy():
 
     # initialise connection because i dont want to pass api key and auth to every fucking method
