@@ -147,5 +147,34 @@ class simpletixtepy():
         except Exception as e: 
             return e
 
-    # I'm trying to learn how to upload onto tixte through the api but I cannot figure out lol
-    # -> Open to suggestions :) 
+    # uploads file to tixte :)
+    # methods take string of file path, and strina of domain to upload to
+    # nya
+    def UploadFile(self, file : str, domain : str):
+        try:
+            files = {
+                'file': (file, open(file, 'rb')),
+            }
+
+            self.data.update({'domain': domain})
+
+            r = requests.post(url + 'upload', headers = self.data, files=files, data=self.data)
+
+            return r.json()
+        except Exception as e:
+            return e
+
+#Work in progress here
+class simpletixteembed():
+    
+    def __init__(self, api_key : str, auth : str) -> None:
+        self.data = {
+            'authorization': auth,
+            'x-api-sitekey': api_key
+        }
+    
+    def getEmbedDetails(self):
+        r =  requests.get(url + "users/@me/config")
+
+        rJSON = r.json()
+        return rJSON
